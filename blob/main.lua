@@ -94,7 +94,7 @@ function love.load()
 
     --initial graphics setup
     love.graphics.setBackgroundColor(104, 136, 248) --set the background color to a nice blue
-    love.graphics.setMode(850, 650, false, true, 0) --set the window dimensions to 650 by 650
+    love.window.setMode(850, 650,{}) --set the window dimensions to 650 by 650
 end
 
 
