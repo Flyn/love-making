@@ -81,9 +81,9 @@ function love.load()
     --let's create a couple blocks to play around with
 
     local block = create_static(200,500)
-    
+
     local block2 = create_static(400,500)
-    
+
     d = join_objects(ball, block)
     d2 = join_objects(ball, block2)
     d3 = join_objects(ball, ball2)
@@ -93,13 +93,13 @@ function love.load()
 
     --initial graphics setup
     love.graphics.setBackgroundColor(104, 136, 248) --set the background color to a nice blue
-    love.graphics.setMode(850, 650, false, true, 0) --set the window dimensions to 650 by 650
+    love.window.setMode(850, 650, {}) --set the window dimensions to 650 by 650
 end
 
 
 function love.update(dt)
     world:update(dt) --this puts the world into motion
-    
+
     --here we are going to create some keyboard events
     if love.keyboard.isDown("right") then --press the right arrow key to push the ball to the right
         balls[1].body:applyForce(400, 0)
@@ -110,7 +110,7 @@ function love.update(dt)
 end
 
 function love.mousepressed(x, y, button)
-  if button == "l" then
+  if button == 1 then
     local near1, near2 = detect_nearest_objects(love.mouse.getPosition())
     if near1 and near2 then
       local ball = create_ball(x, y)
